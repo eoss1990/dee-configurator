@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<context:property-placeholder location="classpath:jdbc.properties,classpath:system.properties" />
+    
+    <!-- 环境变量 -->
+    <bean id="envParameter" class="com.seeyon.v3x.dee.bean.EnvironmentParameter"></bean>
+    
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="jdbc:h2:#{envParameter.deeHome}/${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="maxWait" value="${cpool.checkoutTimeout}"/>
+        <property name="initialSize" value="${cpool.minPoolSize}"/>
+        <property name="minIdle" value="${cpool.minPoolSize}"/>
+        <property name="maxActive" value="${cpool.maxPoolSize}"/>
+        <property name="timeBetweenEvictionRunsMillis" value="${cpool.maxIdleTime}"/>
+        <property name="connectionErrorRetryAttempts" value="${cpool.acquireIncrement}"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="testWhileIdle" value="true"/>
+    </bean>
+    
+    <!-- 测试用事务管理 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    </bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.seeyon.v3x.dee.common.db.code.model.FlowTypeBean</value>
+                <value>com.seeyon.v3x.dee.common.db.code.model.ResourceTypeBean</value>
+                <value>com.seeyon.v3x.dee.common.db.download.model.DownloadBean</value>
+                <value>com.seeyon.v3x.dee.common.db.flow.model.FlowBean</value>
+                <value>com.seeyon.v3x.dee.common.db.flow.model.FlowExeTypeBean</value>
+                <value>com.seeyon.v3x.dee.common.db.flow.model.FlowMetaDataBean</value>
+                <value>com.seeyon.v3x.dee.common.db.flow.model.FlowModuleBean</value>
+                <value>com.seeyon.v3x.dee.common.db.flow.model.FlowSubBean</value>
+                <value>com.seeyon.v3x.dee.common.db.metaflow.model.MetaFlowBean</value>
+                <value>com.seeyon.v3x.dee.common.db.parameter.model.ParameterBean</value>
+                <value>com.seeyon.v3x.dee.common.db.redo.model.RedoBean</value>
+                <value>com.seeyon.v3x.dee.common.db.redo.model.SyncBean</value>
+                <value>com.seeyon.v3x.dee.common.db.resource.model.DeeResourceBean</value>
+                <value>com.seeyon.v3x.dee.common.db.resource.model.DeeResourceTemplateBean</value>
+                <value>com.seeyon.v3x.dee.common.db.schedule.model.ScheduleBean</value>
+                <value>com.seeyon.v3x.dee.common.db.codelib.model.CodePkgBean</value>
+                <value>com.seeyon.v3x.dee.common.db.codelib.model.CodeLibBean</value>
+            </list>
+        </property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.seeyon.dee</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.default_batch_fetch_size">16</prop>
+				<prop key="hibernate.max_fetch_depth">50</prop>
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+                <prop key="hibernate.cache.provider_class">
+                    net.sf.ehcache.hibernate.EhCacheProvider
+                </prop>
+                <prop key="hibernate.cache.use_query_cache">false</prop>
+				<!-- <prop key="hibernate.hbm2ddl.auto">create</prop> -->
+			</props>
+		</property>
+	</bean>
+</beans>

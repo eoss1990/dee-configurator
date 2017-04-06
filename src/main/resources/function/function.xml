@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE functions[
+	<!ELEMENT functions (function+) >
+	<!ELEMENT function (id,pId,isParent,name,content,params,description,type,isClick)>
+	<!ELEMENT id (#PCDATA) >
+	<!ELEMENT pId (#PCDATA)>
+	<!ELEMENT isParent (#PCDATA)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT content (#PCDATA)>
+	<!ELEMENT params (#PCDATA)>
+	<!ELEMENT description (#PCDATA)>
+	<!ELEMENT type (#PCDATA)>
+	<!ELEMENT isClick (#PCDATA)>
+ ]>
+<!-- 如果函数是1级节点，pId就是1,如果有下级节点，isParent="true" 必设，不然无法展开下级节点
+ name:节点名称 
+ content:节点点击，添加到脚本的内容 
+ params:添加到脚本中函数的参数，例如   点击节点，添加到脚本的是         content内容(params内容); 
+ description:函数描述 
+ type:判断函数是系统函数还是用户自定义函数  。  system：系统函数，   user:用户函数
+ isClick:判断该节点是否可以向脚本插入 content.   true:可以，false:不可以
+  -->
+<functions>
+	<!-- 根节点 -->
+	<function>
+		<id>1</id>
+		<pId>0</pId>
+		<isParent>true</isParent>
+		<name>系统代码库</name>
+		<content/>
+		<params/>
+		<description><![CDATA[系统代码库预置了一些常用的脚本方法，可以直接调用]]></description>
+		<type>system</type>
+		<isClick>false</isClick>
+	</function>
+	<function>
+		<id>2</id>
+		<pId>0</pId>
+		<isParent>true</isParent>
+		<name>用户代码库</name>
+		<content/>
+		<params/>
+		<description/>
+		<type>user</type>
+		<isClick>false</isClick>
+	</function>
+	<!-- 1级节点 -->
+	<function>
+		<id>3</id>
+		<pId>1</pId>
+		<isParent>true</isParent>
+		<name>document操作</name>
+		<content/>
+		<params/>
+		<description><![CDATA[该分类下的方法主要用于操作document]]></description>
+		<type>system</type>
+		<isClick>false</isClick>
+	</function>
+	<function>
+		<id>4</id>
+		<pId>1</pId>
+		<isParent>true</isParent>
+		<name>数据源</name>
+		<content/>
+		<params/>
+		<description><![CDATA[该分类下的方法主要用于操作数据源]]></description>
+		<type>system</type>
+		<isClick>false</isClick>
+	</function>
+	<function>
+		<id>5</id>
+		<pId>1</pId>
+		<isParent>true</isParent>
+		<name>开发高级</name>
+		<content/>
+		<params/>
+		<description><![CDATA[该分类下的方法主要用于开发高级]]></description>
+		<type>system</type>
+		<isClick>false</isClick>
+	</function>
+	<function>
+		<id>6</id>
+		<pId>1</pId>
+		<isParent>true</isParent>
+		<name>调试</name>
+		<content/>
+		<params/>
+		<description><![CDATA[该分类下的方法主要用于调试脚本]]></description>
+		<type>system</type>
+		<isClick>false</isClick>
+	</function>
+	<function>
+		<id>30</id>
+		<pId>1</pId>
+		<isParent>true</isParent>
+		<name>时间操作</name>
+		<content/>
+		<params/>
+		<description><![CDATA[该分类下的方法主要用于时间操作]]></description>
+		<type>system</type>
+		<isClick>false</isClick>
+	</function>
+	<function>
+		<id>51</id>
+		<pId>1</pId>
+		<isParent>true</isParent>
+		<name>字符串操作</name>
+		<content/>
+		<params/>
+		<description><![CDATA[该分类下的方法主要用于字符串操作]]></description>
+		<type>system</type>
+		<isClick>false</isClick>
+	</function>
+	<function>
+		<id>60</id>
+		<pId>1</pId>
+		<isParent>true</isParent>
+		<name>数学计算</name>
+		<content/>
+		<params/>
+		<description><![CDATA[该分类下的方法主要用于数学计算]]></description>
+		<type>system</type>
+		<isClick>false</isClick>
+	</function>
+	<function>
+		<id>70</id>
+		<pId>1</pId>
+		<isParent>true</isParent>
+		<name>日志管理</name>
+		<content/>
+		<params/>
+		<description><![CDATA[该分类下的方法主要用日志管理]]></description>
+		<type>system</type>
+		<isClick>false</isClick>
+	</function>
+	
+	<!-- 数学计算的二级节点 -->
+	<function>
+		<id>61</id>
+		<pId>60</pId>
+		<isParent>false</isParent>
+		<name>数字金额大写转换</name>
+		<content>math_digitUppercase</content>
+		<params>number</params>
+		<description><![CDATA[数字金额大写转换
+先写个完整的然后将如零拾替换成零
+number 数字
+return 中文大写数字
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	
+	<function>
+		<id>62</id>
+		<pId>60</pId>
+		<isParent>false</isParent>
+		<name>加法</name>
+		<content>math_add</content>
+		<params>number1, number2</params>
+		<description><![CDATA[加法
+number1 数字
+number2 数字
+return 结果
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>63</id>
+		<pId>60</pId>
+		<isParent>false</isParent>
+		<name>减法</name>
+		<content>math_sub</content>
+		<params>number1, number2</params>
+		<description><![CDATA[减法
+number1 数字
+number2 数字
+return 结果
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>64</id>
+		<pId>60</pId>
+		<isParent>false</isParent>
+		<name>乘法</name>
+		<content>math_mul</content>
+		<params>number1, number2</params>
+		<description><![CDATA[乘法
+number1 数字
+number2 数字
+return 结果
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>65</id>
+		<pId>60</pId>
+		<isParent>false</isParent>
+		<name>除法</name>
+		<content>math_div</content>
+		<params>number1, number2</params>
+		<description><![CDATA[除法
+number1 数字
+number2 数字
+return 结果
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+ 
+ 
+	
+	<!-- 字符串操作的二级节点 -->
+	<function>
+		<id>52</id>
+		<pId>51</pId>
+		<isParent>false</isParent>
+		<name>字符串是否为空</name>
+		<content>str_isEmpty</content>
+		<params>str</params>
+		<description><![CDATA[字符串是否为空
+空的定义如下 1、为null；2、为""
+str 被检测的字符串
+return true or false
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>53</id>
+		<pId>51</pId>
+		<isParent>false</isParent>
+		<name>字符串是否为非空白</name>
+		<content>str_isNotEmpty</content>
+		<params>str</params>
+		<description><![CDATA[字符串是否为非空白
+空的定义如下 1、为null
+2、为""
+str 被检测的字符串
+return  true or false
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	
+	<function>
+		<id>54</id>
+		<pId>51</pId>
+		<isParent>false</isParent>
+		<name>去除首尾空白字符</name>
+		<content>str_trim</content>
+		<params>str</params>
+		<description><![CDATA[除去字符串头尾部的空白 
+str  要处理的字符串
+return 除去空白的字符串，如果原字串为null，则返回null  
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	
+	<function>
+		<id>55</id>
+		<pId>51</pId>
+		<isParent>false</isParent>
+		<name>是否以指定字符串开头</name>
+		<content>str_startWith</content>
+		<params>str,prefix,isIgnoreCase</params>
+		<description><![CDATA[是否以指定字符串开头
+str 被监测字符串
+prefix 开头字符串
+isIgnoreCase 是否忽略大小写,给true or false
+return true or false
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	
+	<function>
+		<id>56</id>
+		<pId>51</pId>
+		<isParent>false</isParent>
+		<name>是否以指定字符串结尾</name>
+		<content>str_endWith</content>
+		<params>str,suffix,isIgnoreCase</params>
+		<description><![CDATA[是否以指定字符串结尾
+str 被监测字符串
+suffix 结尾字符串
+isIgnoreCase 是否忽略大小写,给true or false
+return true or false
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	
+	<function>
+		<id>57</id>
+		<pId>51</pId>
+		<isParent>false</isParent>
+		<name>分隔字符串</name>
+		<content>str_split</content>
+		<params>str,separator</params>
+		<description><![CDATA[分隔字符串
+a#b#c -> [a,b,c]  
+a##b#c -> [a,"",b,c]
+str 被切分的字符串
+separator 分隔符字符
+return 切分后字符数组
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	 
+	 <function>
+		<id>58</id>
+		<pId>51</pId>
+		<isParent>false</isParent>
+		<name>截取字符串</name>
+		<content>str_sub</content>
+		<params>str,fromIndex,toIndex</params>
+		<description><![CDATA[截取字符串
+index从0开始计算，最后一个字符为-1
+ 如果from和to位置一样，返回 "" example: abcdefgh 2 3 -> c ,abcdefgh 2 -3 -> cde
+str 字符串
+fromIndex 开始的index（包括）
+toIndex 结束的index（不包括）
+return 字符串
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+ 
+	
+	<!-- 时间调试的二级节点 -->
+	<function>
+		<id>31</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>当前时间</name>
+		<content>date_now</content>
+		<params></params>
+		<description><![CDATA[获取当前时间字符串 
+ 返回值：yyyy-MM-dd HH:mm:ss的字符串 ,例如 2015-11-01 14:15:01
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>32</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>当前日期</name>
+		<content>date_thisDay</content>
+		<params></params>
+		<description><![CDATA[获取当前日期字符串  
+返回值： yyyy-MM-dd格式的字符串 ,例如 2015-11-01
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>33</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>当前月份</name>
+		<content>date_thisMonth</content>
+		<params></params>
+		<description><![CDATA[获取当前月份
+返回值：月份,例如  12
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>34</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>当前年份</name>
+		<content>date_thisYear</content>
+		<params></params>
+		<description><![CDATA[获取当前年份
+返回值：年份,例如 2015
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>35</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>获取月份</name>
+		<content>date_getMonth</content>
+		<params>date</params>
+		<description><![CDATA[根据时间对象获取月份
+参数：date 日期date对象
+返回值：月份,例如 12
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>36</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>获取年份</name>
+		<content>date_getYear</content>
+		<params>date</params>
+		<description><![CDATA[根据时间对象获取年份
+参数：date 日期date对象
+返回值：年份,例如 2012
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>37</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>获取季节</name>
+		<content>date_getSeason</content>
+		<params>date</params>
+		<description><![CDATA[根据时间对象获取季节
+参数：date 日期date对象
+返回值：季节,例如  第一季节 返回    1
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>38</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>获取格式化日期字符串</name>
+		<content>date_format</content>
+		<params>date,format</params>
+		<description><![CDATA[获取格式化日期字符串
+参数：date 日期date对象
+参数：format yyyy-MM-dd类型字符串
+返回值：格式化后的日期字符串
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>39</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>将特定格式的日期字符串转换为Date对象</name>
+		<content>date_parse</content>
+		<params>dateStr,formatStr</params>
+		<description><![CDATA[将特定格式的日期字符串转换为Date对象		
+ 参数   dateStr 特定格式的日期字符串
+ 参数   formatStr 格式，例如yyyy-MM-dd
+返回值：日期对象
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>40</id>
+		<pId>30</pId>
+		<isParent>false</isParent>
+		<name>将日期字符串转换为Date对象，自动匹配格式</name>
+		<content>date_parse</content>
+		<params>dateStr</params>
+		<description><![CDATA[将日期字符串转换为Date对象，自动匹配格式		
+参数   dateStr 特定格式的日期字符串
+返回值：日期对象
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<!-- 时间调试的二级节点 -->
+	
+	
+	<!-- 二级节点 -->
+	<function>
+		<id>999</id>
+		<pId>6</pId>
+		<isParent>false</isParent>
+		<name>调试</name>
+		<content>debug</content>
+		<params>lineNum,name,val</params>
+		<description><![CDATA[调试函数
+参数：lineNum行号；name变量名称；val变量对象
+返回值：无
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>997</id>
+		<pId>6</pId>
+		<isParent>false</isParent>
+		<name>中断任务</name>
+		<content>interruptTask</content>
+		<params></params>
+		<description><![CDATA[中断任务
+参数：无
+返回值：无
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function>
+		<id>7</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>根据字段值获取包含该值的document</name>
+		<content>getDocByVal</content>
+		<params>document,name,val</params>
+		<description><![CDATA[根据某个字段的值获取包含该值的document
+参数：document对象，字段名称name，字段值value
+返回值：document对象
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function  >
+		<id>8</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>根据字段拆分document</name>
+		<content>splitDocByName</content>
+		<params>document, name</params>
+		<description><![CDATA[根据某个字段拆分document
+参数：document对象，字段名称name
+返回值：document集合list]]>
+		</description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>9</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>获取webservice适配器返回值</name>
+		<content>getWsResult</content>
+		<params>document</params>
+		<description><![CDATA[获取webservice 适配器返回值
+参数：存放webservice结果的document对象
+返回值：Object
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function   >
+		<id>11</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>创建以root为根节点的document</name>
+		<content>buildDoc</content>
+		<params/>
+		<description><![CDATA[快速生成以root为根节点的document
+参数：无
+返回值：document
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function  >
+	<id>998</id>
+	<pId>3</pId>
+	<isParent>false</isParent>
+	<name>获取document根节点</name>
+	<content>getRootElement</content>
+	<params>document</params>
+	<description><![CDATA[获取document根节点
+参数：document对象
+返回值：Element
+		]]></description>
+	<type>system</type>
+	<isClick>true</isClick>
+	</function>
+	<function  >
+		<id>12</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>创建Element</name>
+		<content>buildElement</content>
+		<params>document, name</params>
+		<description><![CDATA[快速生成element节点
+参数：document对象，节点名字name
+返回值：Element
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function  >
+		<id>13</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>获取Element所有子节点</name>
+		<content>getAllChildOfElement</content>
+		<params>element</params>
+		<description><![CDATA[获取element的所有子节点
+参数：element对象
+返回值:element子节点集合 List
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function   >
+		<id>14</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>根据名称获取Element子节点</name>
+		<content>getChildByName</content>
+		<params>element, name</params>
+		<description><![CDATA[根据名称获取element的子节点
+参数：element对象，子节点名称name
+返回值：子节点对象 element
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function   >
+		<id>15</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>设置Element值</name>
+		<content>setVal2Element</content>
+		<params>element, value</params>
+		<description><![CDATA[向element中设置值
+参数：element对象，值value
+返回值：无
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>16</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>获取Element的值</name>
+		<content>getElementValue</content>
+		<params>element</params>
+		<description><![CDATA[获取element的值
+参数：element对象
+返回值：Object
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function   >
+		<id>17</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>删除Element节点</name>
+		<content>delElement</content>
+		<params>document, name</params>
+		<description><![CDATA[删除element节点
+参数：当前document对象，要删除的节点名称name
+返回值:document对象
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function  >
+		<id>18</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>替换Element节点</name>
+		<content>replaceElement</content>
+		<params>document, name, element</params>
+		<description><![CDATA[替换element节点
+参数：当前document对象,被替换的节点名称name,替换节点element
+返回值：document对象
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>19</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>插入Element节点</name>
+		<content>addElement</content>
+		<params>elementParent, elementChild</params>
+		<description><![CDATA[往Element对象中插入子节点
+参数：父节点elementParent，子节点elementChild
+返回值：无]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>20</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>根据XML生成document</name>
+		<content>createDocByXml</content>
+		<params>xml</params>
+		<description><![CDATA[根据xml字符串生成document
+参数：xml字符串
+返回值：document对象]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function  >
+		<id>21</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>合并document</name>
+		<content>mergeDoc</content>
+		<params>document1,document2</params>
+		<description><![CDATA[合并document
+参数：document对象1，document对象2
+返回值:合并后的document对象]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>22</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>根据名称获取参数值</name>
+		<content>getParaByName</content>
+		<params>document,name</params>
+		<description><![CDATA[根据名称获取参数值
+参数：存放参数的document对象，参数名称name
+返回值:参数值 Object]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function   >
+		<id>23</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>添加参数</name>
+		<content>setParam</content>
+		<params>document, name, value</params>
+		<description><![CDATA[向document中添加参数
+参数：当前document对象，参数名称name，参数值value
+返回值：无]]>
+		</description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function  >
+		<id>25</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>根据字段值获取row集合</name>
+		<content>getRowListByVal</content>
+		<params>document, name, val</params>
+		<description><![CDATA[根据某个字段的值获取该字段所在行数据的集合
+参数：当前document对象，字段名称name,字段值value
+返回值：element集合 list]]>
+        </description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>24</id>
+		<pId>4</pId>
+		<isParent>false</isParent>
+		<name>根据名称获取数据源</name>
+		<content>getDsByName</content>
+		<params>name</params>
+		<description><![CDATA[根据数据源名称获取数据源对象
+参数：数据源名称name
+返回值：数据源对象JDBCDataSource]]>
+		</description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function   >
+		<id>25</id>
+		<pId>5</pId>
+		<isParent>false</isParent>
+		<name>设置开发高级字符串</name>
+		<content>setHighSetStr</content>
+		<params>document,status,ispop,reason,remark</params>
+		<description><![CDATA[要使用开发高级功能，需要设置开发高级字符串
+参数：当前document对象,status状态(T:成功/F:失败),ispop是否弹窗(Y:弹出/N:不弹)，操作原因(reason)，备注(remark)
+返回值：包含开发高级字符串的document]]>
+		</description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+
+	<function >
+		<id>26</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>根据xml文件创建document</name>
+		<content>createDocByFile</content>
+		<params>path</params>
+		<description><![CDATA[根据xml文件创建document
+参数：xml文件路径 path
+返回值：document对象]]>
+		</description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>27</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>获取FormData数据</name>
+		<content>formDataToDoc</content>
+		<params></params>
+		<description><![CDATA[获取FormData数据
+参数：无
+返回值：document对象]]>
+		</description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>28</id>
+		<pId>4</pId>
+		<isParent>false</isParent>
+		<name>执行存储过程</name>
+		<content>exeProcedure</content>
+		<params>sourceName, procedureName, parms</params>
+		<description><![CDATA[执行存储过程
+参数：数据源名称, 存储过程名称(oracle数据库需加包名.), 参数(格式:"参数1,参数2")
+返回值：document对象]]>
+		</description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>29</id>
+		<pId>3</pId>
+		<isParent>false</isParent>
+		<name>获取REST适配器返回值</name>
+		<content>getRestResult</content>
+		<params>document</params>
+		<description><![CDATA[获取REST适配器返回值
+参数：存放REST适配器返回值的document对象
+返回值：Object
+		]]></description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>41</id>
+		<pId>6</pId>
+		<isParent>false</isParent>
+		<name>FormData模拟数据</name>
+		<content>getTestFormData</content>
+		<params>sourceName, formId</params>
+		<description><![CDATA[根据数据源名称和formId获取模拟的FormData数据格式，会将FormData数据放入到参数中
+参数：sourceName, formId
+返回值：无]]>
+		</description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+	<function >
+		<id>71</id>
+		<pId>70</pId>
+		<isParent>false</isParent>
+		<name>日志清理</name>
+		<content>clearLogs</content>
+		<params>day</params>
+		<description><![CDATA[清理day天前的日志数据
+参数：day
+返回值：无]]>
+		</description>
+		<type>system</type>
+		<isClick>true</isClick>
+	</function>
+</functions>

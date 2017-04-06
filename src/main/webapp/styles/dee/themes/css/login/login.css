@@ -1,0 +1,88 @@
+﻿html {width:100%;height:100%;overflow-y:scroll;}
+body {width:100%;height:100%;margin:0; padding:0; font:12px;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;}
+table,td,tr,th{font-size:12px;}
+ol,ul {list-style:none;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+h1,h2,h3,h4,h5,h6{font-size:inherit; font-weight:normal;}
+address,cite,code,em,th,i{font-weight:normal; font-style:normal;}
+
+.warp {
+    width:100%;
+    height:100%;
+    background:url(images/login_bg.jpg) repeat center center;
+    position:relative;
+}
+.login_box_title {
+    width:280px;
+    height:60px;
+    position:absolute;
+    _background:url(images/dee_top.png) no-repeat;
+    _background:url(images/dee_top.gif) no-repeat;
+    background:url(images/dee_top_2.1sp1.png) no-repeat;
+}
+    
+.login_box {
+    width:394px;
+    height:247px;
+    background:url(images/login_box.png) no-repeat;
+    position:absolute;
+    font-size:14px;
+    color:#fff;
+}
+
+.login_box_labelname {
+    position:absolute;
+    top:26px;
+    left:68px;
+}
+.login_box_labelpassword {
+    position:absolute;
+    top:102px;
+    left:68px;
+}
+.login_box_name {
+    width:230px;
+    height:25px;
+    border:0;
+    color:#000;
+    background:transparent;
+    position:absolute;
+    top:53px;
+    left:74px;
+}
+.login_box_password {
+    width:230px;
+    height:25px;
+    border:0;
+    color:#000;
+    background:transparent;
+    position:absolute;
+    top:130px;
+    left:74px;
+}
+.login_submit {
+    position:absolute;
+    bottom:25px;
+    left:125px;
+    width:132px;
+    height:42px;
+    background:url(images/button_line.png) repeat;
+    border:0;
+    cursor: pointer;
+    font-size:18px;
+    color:#fff;
+    font-weight:bold;
+    -moz-border-radius: 5px;      
+    -webkit-border-radius: 5px;   
+    border-radius:5px;            
+}
+.login_logo {
+    width:200px;
+    height:27px;
+    position:absolute;
+    bottom:58px;
+    background:url(images/logo_bottom.png) no-repeat;
+    _background:url(images/logo_bottom.gif) no-repeat;
+}

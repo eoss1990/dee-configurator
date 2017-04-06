@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+        <route id="simpleRoute">
+            <from uri="activemq:queue:deeQueue1"/>
+            <process ref="flowProcessor"/>
+            <choice>
+                <when>
+                    <simple>${header.deeIsEnd} == 'false'</simple>
+                    <to uri="activemq:queue:deeQueue1"/>
+                </when>
+                <otherwise>
+                    <log message="dee end!"/>
+                </otherwise>
+            </choice>
+        </route>
+    </camelContext>
+
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="http://127.0.0.1:8061"/>
+    </bean>
+
+    <bean id="flowProcessor" class="com.seeyon.dee.configurator.camel.FlowProcessor"/>
+
+    <bean id="deeParam" class="com.seeyon.dee.configurator.camel.DeeParam">
+        <property name="deeId" value="${dee.dee_id}"/>
+    </bean>
+</beans>

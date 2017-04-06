@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Metadata display="组织机构元数据列表" name="mainOrg"> 
+  <Tables  display="组织机构元数据" name="org"> 
+    <Table name="depArray" display="部门" tabletype=""> 
+      <Field name="departmentId" fieldtype="varchar" fieldlength="30" display="部门编码"/>
+      <Field name="departmentName" fieldtype="varchar" fieldlength="30" display="部门名称"/>
+      <Field name="parentDeptId" fieldtype="varchar" fieldlength="30" display="父部门编码"/>
+      <Field name="discursion" fieldtype="varchar" fieldlength="200" display="部门描述"/>
+      <Field name="dep_sort" fieldtype="varchar" fieldlength="10"  display="部门排序"/>
+      <Field name="departmentNumber" fieldtype="varchar" fieldlength="20"  display="部门代码"/>
+    </Table> 
+    <Table name="ocupationArray" display="岗位" tabletype=""> 
+      <Field name="ocupationName" fieldtype="varchar" fieldlength="30" display="岗位名称"/>
+      <Field name="discursion" fieldtype="varchar" fieldlength="200" display="岗位描述"/>
+      <Field name="sortId" fieldtype="varchar" fieldlength="10"  display="岗位排序"/>
+      <Field name="code" fieldtype="varchar" fieldlength="20"  display="岗位代码"/>
+      <Field name="type" fieldtype="varchar" fieldlength="2"  display="岗位类别"/>
+    </Table> 
+    <Table name="otypeArray" display="职务级别" tabletype=""> 
+      <Field name="OTypeName" fieldtype="varchar" fieldlength="30" display="职务级别名称"/>
+      <Field name="discursion" fieldtype="varchar" fieldlength="200" display="职务级别描述"/>
+      <Field name="levelId" fieldtype="varchar" fieldlength="10"  display="职务级别排序"/>
+      <Field name="code" fieldtype="varchar" fieldlength="20"  display="职务级别代码"/>
+    </Table> 
+    <Table name="personArray" display="人员" tabletype=""> 
+      <Field name="otypeName" fieldtype="varchar" fieldlength="30" display="职务级别"/>
+      <Field name="birthday" fieldtype="varchar" fieldlength="20" display="出生日期"/>
+      <Field name="per_sort" fieldtype="varchar" fieldlength="10"  display="人员排序"/>
+      <Field name="sex" fieldtype="varchar" fieldlength="2"  display="性别"/>
+      <Field name="ocupationName" fieldtype="varchar" fieldlength="30" display="主岗"/>
+      <Field name="secondOcupationName" fieldtype="varchar" fieldlength="30" display="副岗"/>
+      <Field name="trueName" fieldtype="varchar" fieldlength="20" display="姓名"/>
+      <Field name="discursion" fieldtype="varchar" fieldlength="200" display="描述"/>
+      <Field name="familyPhone" fieldtype="varchar" fieldlength="20" display="家庭电话"/>
+      <Field name="officePhone" fieldtype="varchar" fieldlength="20" display="办公电话"/>
+      <Field name="departmentName" fieldtype="varchar" fieldlength="30" display="所属部门"/>
+      <Field name="passWord" fieldtype="varchar" fieldlength="30" display="登录密码"/>
+      <Field name="staffNumber" fieldtype="varchar" fieldlength="30" display="人员编号"/>
+      <Field name="familyAddress" fieldtype="varchar" fieldlength="50" display="家庭地址"/>
+      <Field name="id" fieldtype="varchar" fieldlength="30" display="人员编码"/>
+      <Field name="identity" fieldtype="varchar" fieldlength="20" display="身份证号"/>
+      <Field name="mobilePhone" fieldtype="varchar" fieldlength="20" display="移动电话"/>
+      <Field name="email" fieldtype="varchar" fieldlength="30" display="E_Mail"/>
+      <Field name="loginName" fieldtype="varchar" fieldlength="30" display="登录名"/>
+    </Table> 
+  </Tables>  
+</Metadata>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="dee-adapter" namespace="/dee" extends="struts2">
+        <action name="jdbcreader" class="com.seeyon.dee.configurator.action.adapter.JDBCReaderAction">
+            <result name="jdbcreader">/WEB-INF/jsp/dee/resource/jdbcreader.jsp</result>
+        </action>
+        <action name="wsprocessor" class="com.seeyon.dee.configurator.action.adapter.WsprocessorAction">
+            <result name="wsprocesser">/WEB-INF/jsp/dee/resource/wsprocessor.jsp</result>
+            <result name="autoAnalysis">/WEB-INF/jsp/dee/resource/autoAnalysis.jsp</result>
+        </action>
+        <action name="staticrestprocesser" class="com.seeyon.dee.configurator.action.adapter.StaticRestProcessorAction">
+            <result name="staticrestprocesser">/WEB-INF/jsp/dee/resource/staticrestprocessor.jsp</result>
+        </action>
+        <action name="script" class="com.seeyon.dee.configurator.action.adapter.ScriptAction">
+            <result name="script">/WEB-INF/jsp/dee/resource/scriptprocessor.jsp</result>
+        </action>
+        <action name="sapjco" class="com.seeyon.dee.configurator.action.adapter.SapJcoProcessorAction">
+            <result name="sapjco">/WEB-INF/jsp/dee/resource/sapjco_processor.jsp</result>
+        </action>
+        <action name="sapjcowriter" class="com.seeyon.dee.configurator.action.adapter.SapJcoProcessorAction">
+            <result name="sapjco">/WEB-INF/jsp/dee/resource/sapjco_processorwriter.jsp</result>
+            <result name="jcostructure">/WEB-INF/jsp/dee/resource/jcostructuremap.jsp</result>
+            <result name="jcotable">/WEB-INF/jsp/dee/resource/jcotablemap.jsp</result>
+        </action>
+        <action name="xslt" class="com.seeyon.dee.configurator.action.adapter.XsltProcessorAction">
+            <result name="xslt">/WEB-INF/jsp/dee/resource/xsltprocessor.jsp</result>
+        </action>
+        <action name="sapws" class="com.seeyon.dee.configurator.action.adapter.SapWsProcessorAction">
+            <result name="sapws">/WEB-INF/jsp/dee/resource/sapWsProcessor.jsp</result>
+        </action>
+        <action name="jdbcwriter" class="com.seeyon.dee.configurator.action.adapter.JDBCWriterAction">
+            <result name="jdbcwriter">/WEB-INF/jsp/dee/resource/jdbcwriter.jsp</result>
+        </action>
+        <action name="mapping" class="com.seeyon.dee.configurator.action.adapter.MappingProcessorAction">
+            <result name="mapping_processor">/WEB-INF/jsp/dee/resource/mapping_processor.jsp</result>
+        </action>
+        <action name="orgSyncWriter" class="com.seeyon.dee.configurator.action.adapter.A8OrgSyncWriterAction">
+            <result name="org_sync">/WEB-INF/jsp/dee/resource/orgsync_writer.jsp</result>
+        </action>
+        <action name="a8source" class="com.seeyon.dee.configurator.action.adapter.A8SourceAction">
+            <result name="a8source">/WEB-INF/jsp/dee/resource/a8source.jsp</result>
+        </action>
+        <action name="a8commonws" class="com.seeyon.dee.configurator.action.adapter.A8CommonWsAction">
+            <result name="a8commonws">/WEB-INF/jsp/dee/resource/a8commonws.jsp</result>
+        </action>
+        <action name="custom" class="com.seeyon.dee.configurator.action.adapter.CustomAdapter">
+            <result name="custom">/WEB-INF/jsp/dee/resource/customAdapter.jsp</result>
+        </action>
+        <action name="a8enumreader" class="com.seeyon.dee.configurator.action.adapter.A8EnumReaderAction">
+            <result name="a8enumreader">/WEB-INF/jsp/dee/resource/a8enumreader.jsp</result>
+        </action>
+        <action name="a8enumwriter" class="com.seeyon.dee.configurator.action.adapter.A8EnumWriterAction">
+            <result name="a8enumwriter">/WEB-INF/jsp/dee/resource/a8enumwriter.jsp</result>
+        </action>
+        <action name="restprocessor" class="com.seeyon.dee.configurator.action.adapter.RestProcessorAction">
+            <result name="restprocessor">/WEB-INF/jsp/dee/resource/restprocessor.jsp</result>
+        </action>
+        <action name="a8msgwriter" class="com.seeyon.dee.configurator.action.adapter.A8MsgWriterAction">
+            <result name="a8msgwriter">/WEB-INF/jsp/dee/resource/a8msgwriter.jsp</result>
+        </action>
+        <action name="a8form_writeback_writer" class="com.seeyon.dee.configurator.action.adapter.A8FormWriteBackWriterAction">
+            <result name="a8form_writeback_writer">/WEB-INF/jsp/dee/resource/a8form_writeback_writer.jsp</result>
+        </action>
+        <action name="adapterall" class="com.seeyon.dee.configurator.action.adapter.AdapterAllAction">
+            <result name="jdbcreader" type="redirectAction">
+                <param name="actionName">jdbcreader!jdbcreadershow.do</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="mapping_processor" type="redirectAction">
+                <param name="actionName">mapping!mappingShow.do</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="script" type="redirectAction">
+                <param name="actionName">script!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="wsprocessor" type="redirectAction">
+                <param name="actionName">wsprocessor!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="sapjco" type="redirectAction">
+                <param name="actionName">sapjco!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="sapjcowriter" type="redirectAction">
+                <param name="actionName">sapjcowriter!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="xslt" type="redirectAction">
+                <param name="actionName">xslt!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="sapws" type="redirectAction">
+                <param name="actionName">sapws!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="jdbcwriter" type="redirectAction">
+                <param name="actionName">jdbcwriter!jdbcWritershow.do</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="org_sync" type="redirectAction">
+                <param name="actionName">orgSyncWriter!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="a8source" type="redirectAction">
+                <param name="actionName">a8source!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="a8commonws" type="redirectAction">
+                <param name="actionName">a8commonws!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="custom" type="redirectAction">
+                <param name="actionName">custom!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="a8enumreader" type="redirectAction">
+                <param name="actionName">a8enumreader!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="a8enumwriter" type="redirectAction">
+                <param name="actionName">a8enumwriter!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="a8msgwriter" type="redirectAction">
+                <param name="actionName">a8msgwriter!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="restprocessor" type="redirectAction">
+                <param name="actionName">restprocessor!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="a8form_writeback_writer" type="redirectAction">
+                <param name="actionName">a8form_writeback_writer!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+            <result name="srprocessor" type="redirectAction">
+                <param name="actionName">staticrestprocesser!view</param>
+                <param name="flowId">${flowId}</param>
+                <param name="resourceId">${resourceId}</param>
+                <param name="newDate">${newDate}</param>
+            </result>
+        </action>
+    </package>
+</struts>
